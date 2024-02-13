@@ -2099,4 +2099,5 @@ ALTER TABLE Users_activity_series #I added the foreign key constraint to the Use
 ADD CONSTRAINT fk_serie_id FOREIGN KEY (Id_of_the_serie) REFERENCES Series(Serie_id);
 
 
-
+ALTER TABLE movies ADD COLUMN Year_of_release INT(4); # Here I update the table movies with a new column to receive the year of release of each movie.
+ALTER TABLE series ADD COLUMN Year_of_release INT(4); # Here I update the table series with a new column to receive the year of release of each serie.
