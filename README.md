@@ -1,7 +1,9 @@
-CREATE database IF NOT EXISTS ireflix;
+CREATE database IF NOT EXISTS ireflix4; # Create database if it doesn't exist.
 
-USE ireflix;
+USE ireflix4; # Here I say that I want the specified database to be used
 
+
+#from here I created the tables with the columns specified by the CA1 sheet
 CREATE TABLE Users (
 	Username_user VARCHAR(35),
     Name_user VARCHAR(35),
@@ -21,30 +23,30 @@ CREATE TABLE Movies (
 CREATE TABLE Series (
 	Serie_id INT(6),
     Genre CHAR(20),
-    User_qualification INT(1),
+    Qualification_from_users INT(1),
     Protagonist_name VARCHAR(35),
     Protagonist_surname VARCHAR(35),
     Number_of_seasons INT(3)
 );
 
 CREATE TABLE Actors (
-	Actors_name VARCHAR(35),
-    Actors_surname VARCHAR(35),
-    Actors_nationality CHAR(20)
+	Name VARCHAR(35),
+    Surname VARCHAR(35),
+    Nationality CHAR(20)
 );
 
 CREATE TABLE Directors (
-	Directors_name VARCHAR(35),
-    Directors_surname VARCHAR(35),
-    Directors_nationality CHAR(20)
+	Name VARCHAR(35),
+    Surname VARCHAR(35),
+    Nationality CHAR(20)
 );
-    
+
 CREATE TABLE Users_activity_movies (
 	Username_movie VARCHAR(35),
 	Id_of_the_movie VARCHAR(35),
 	Genre_of_the_movie CHAR(20)
 );
-        
+
 CREATE TABLE Users_activity_series (
 	Username_serie VARCHAR(35),
 	Id_of_the_serie VARCHAR(35),
@@ -52,17 +54,7 @@ CREATE TABLE Users_activity_series (
 );
 
 
-ALTER TABLE series CHANGE COLUMN User_qualification Qualification_from_users INT(1);
-ALTER TABLE directors CHANGE COLUMN Directors_nationality Nationality CHAR(20);
-ALTER TABLE actors CHANGE COLUMN Actors_nationality Nationality CHAR(20);
-ALTER TABLE actors CHANGE COLUMN Actors_name Name VARCHAR(35);
-ALTER TABLE directors CHANGE COLUMN Directors_name Name VARCHAR(35);
-ALTER TABLE actors CHANGE COLUMN Actors_surname Surname VARCHAR(35);
-ALTER TABLE directors CHANGE COLUMN Directors_surname Surname VARCHAR(35);
-ALTER TABLE series CHANGE COLUMN User_qualification Qualification_from_users INT(1);
-
-USE ireflix;
-
+#from here I populated the tables according to CA1 sheet. I didnt populate the years columns because the professorsaid it was not necessary.
 INSERT INTO Users (Username_user, Name_user, Surname_user, Password_user) 
 VALUES 
 ('user_001', 'John', 'Smith', 'pass123'),
@@ -565,7 +557,6 @@ VALUES
 ('user_498', 'Emily', 'Johnson', 'userpass123'),
 ('user_499', 'Michael', 'Harris', '1234pass'),
 ('user_500', 'Sophia', 'Williams', 'pass123456');
-
 
 INSERT INTO movies (Movie_id, Name_of_the_movie, Genre, Duration_movie, Qualification_from_users, Protagonist_actor) 
 VALUES 
@@ -1070,6 +1061,95 @@ VALUES
 (499, 'The Hangover', 'Comedy', 101, 4, 'Daniel Rodriguez'),
 (500, 'The Godfather Part II', 'Crime', 202, 4, 'Olivia Martinez');
 
+INSERT INTO directors (Name, Surname, Nationality)
+VALUES
+('Liam', 'Garcia', 'Spanish'),
+('Emma', 'Smith', 'American'),
+('Noah', 'Johnson', 'British'),
+('Olivia', 'Martinez', 'Mexican'),
+('William', 'Lee', 'Chinese'),
+('Ava', 'Rodriguez', 'Brazilian'),
+('James', 'Hernandez', 'French'),
+('Isabella', 'Lopez', 'Italian'),
+('Oliver', 'Gonzalez', 'Russian'),
+('Sophia', 'Perez', 'German'),
+('Lucas', 'Wilson', 'Australian'),
+('Amelia', 'Taylor', 'Canadian'),
+('Benjamin', 'Anderson', 'Swedish'),
+('Mia', 'Thomas', 'Japanese'),
+('Elijah', 'Moore', 'Korean'),
+('Charlotte', 'Jackson', 'Indian'),
+('Alexander', 'White', 'Irish'),
+('Harper', 'Martin', 'Scottish'),
+('Daniel', 'Thompson', 'Dutch'),
+('Evelyn', 'Nguyen', 'Vietnamese'),
+('Michael', 'Gomez', 'Portuguese'),
+('Abigail', 'Kim', 'Polish'),
+('William', 'Lewis', 'Greek'),
+('Emily', 'Harris', 'Turkish'),
+('David', 'Clark', 'Israeli'),
+('Elizabeth', 'Young', 'Egyptian'),
+('Joseph', 'King', 'Nigerian'),
+('Samantha', 'Wright', 'South African'),
+('Daniel', 'Scott', 'Argentinian'),
+('Madison', 'Walker', 'Colombian'),
+('John', 'Green', 'Chilean'),
+('Victoria', 'Baker', 'Peruvian'),
+('Matthew', 'Adams', 'Swiss'),
+('Luna', 'Rivera', 'Puerto Rican'),
+('Anthony', 'Nelson', 'New Zealander'),
+('Emma', 'Ward', 'Finnish'),
+('Ethan', 'Cook', 'Norwegian'),
+('Scarlett', 'Torres', 'Danish'),
+('Dylan', 'Morales', 'Austrian'),
+('Grace', 'Collins', 'Belgian'),
+('Logan', 'Bennett', 'Czech'),
+('Chloe', 'James', 'Hungarian'),
+('Ryan', 'Reed', 'Icelandic'),
+('Zoe', 'Hill', 'Slovakian'),
+('Liam', 'Phillips', 'Romanian'),
+('Lily', 'Russell', 'Bulgarian'),
+('Carter', 'Cruz', 'Kazakhstani'),
+('Aiden', 'Hughes', 'Ukrainian'),
+('Sophia', 'Price', 'Malaysian'),
+('Mason', 'Fisher', 'Thai'),
+('Ella', 'Sanders', 'Indonesian'),
+('Grayson', 'Rossi', 'Singaporean'),
+('Avery', 'Ortega', 'Filipino'),
+('Jackson', 'Evans', 'Emirati'),
+('Penelope', 'Ramirez', 'Saudi Arabian'),
+('Lucas', 'Hayes', 'Qatari'),
+('Riley', 'Sullivan', 'Kuwaiti'),
+('Aria', 'Morgan', 'Bahraini'),
+('Layla', 'Peterson', 'Omani'),
+('Cameron', 'Santos', 'Lebanese'),
+('Zoey', 'Parker', 'Jordanian'),
+('Wyatt', 'Griffin', 'Israeli'),
+('Nora', 'Castillo', 'Palestinian'),
+('Gabriel', 'Owens', 'Syrian'),
+('Hannah', 'Vasquez', 'Yemeni'),
+('Grayson', 'Hart', 'Iraqi'),
+('Evelyn', 'Mendoza', 'Iranian'),
+('Lincoln', 'Guerrero', 'Afghan'),
+('Sofia', 'Kennedy', 'Georgian'),
+('Henry', 'Bailey', 'Armenian'),
+('Leah', 'Chavez', 'Azerbaijani'),
+('Bentley', 'Vaughn', 'Tajik'),
+('Chloe', 'Richardson', 'Turkmen'),
+('Zachary', 'Watson', 'Uzbek'),
+('Audrey', 'Gibson', 'Kurdish'),
+('Sawyer', 'Wallace', 'Tibetan'),
+('Bella', 'Dixon', 'Mongolian'),
+('Leo', 'Barrett', 'Bhutanese'),
+('Claire', 'Ferguson', 'Nepali'),
+('Asher', 'Murray', 'Bangladeshi'),
+('Ellie', 'Harper', 'Pakistani'),
+('Nathan', 'Newton', 'Sri Lankan'),
+('Violet', 'Davidson', 'Maldivian'),
+('Hazel', 'Hansen', 'Burmese'),
+('Eli', 'Cunningham', 'Cambodian'),
+('Aubrey', 'Perkins', 'Laotian'),
+('Levi', 'Hudson', 'Vietnamese');
 
 INSERT INTO Series (Serie_id, Genre, Qualification_from_users, Protagonist_name, Protagonist_surname, Number_of_seasons) 
 VALUES 
@@ -1573,7 +1653,6 @@ VALUES
 (498, 'Adventure', 4, 'James', 'Harris', 8),
 (499, 'Crime', 5, 'Emma', 'Martinez', 7),
 (500, 'Sci-Fi', 4, 'John', 'Smith', 8);
-
 
 INSERT INTO Actors (Name, Surname, Nationality) 
 VALUES
@@ -2079,7 +2158,6 @@ VALUES
 ('Zara', 'Hoover', 'Canadian');
 
 
-	
 ALTER TABLE Movies # I changed the Movies table to have a primary key Movie_id of type INT(6)
 MODIFY Movie_id INT(6) PRIMARY KEY;
 
@@ -2101,3 +2179,21 @@ ADD CONSTRAINT fk_serie_id FOREIGN KEY (Id_of_the_serie) REFERENCES Series(Serie
 
 ALTER TABLE movies ADD COLUMN Year_of_release INT(4); # Here I update the table movies with a new column to receive the year of release of each movie.
 ALTER TABLE series ADD COLUMN Year_of_release INT(4); # Here I update the table series with a new column to receive the year of release of each serie.
+
+SELECT Protagonist_actor, COUNT(*) AS Number_of_Movies #here I used de COUNT to count the quantity of movies John Harris was the protagonist.
+FROM movies
+WHERE Protagonist_actor = 'John Harris'
+GROUP BY Protagonist_actor;
+
+SELECT DISTINCT Protagonist_actor #here I used a left join to check who was protagonist in movies and not in series.
+FROM Movies
+LEFT JOIN Series ON Movies.Protagonist_actor = Series.Protagonist_name
+WHERE Series.Protagonist_name IS NULL;
+
+
+
+
+
+
+
+
